@@ -9,7 +9,8 @@
   "dependencies": {
     "@red-cup-engineering/computer-file-engineering-services-section": "workspace:*",
     "@red-cup-engineering/javascript-node-services-section": "workspace:*",
-    "@red-cup-engineering/json-services-section": "workspace:*"
+    "@red-cup-engineering/json-services-section": "workspace:*",
+    "@red-cup-engineering/jsonl-services-section": "workspace:*"
   },
   "scripts": {
     "test": "node --test test/*.test.mjs"
