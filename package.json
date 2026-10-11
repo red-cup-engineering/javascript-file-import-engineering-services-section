@@ -7,9 +7,10 @@
     "./read-javascript-file-imports": "./scripts/read-javascript-file-imports.mjs"
   },
   "dependencies": {
-    "@red-cup-engineering/file-services": "workspace:*",
+    "@red-cup-engineering/computer-file-engineering-services-section": "workspace:*",
     "@red-cup-engineering/javascript-node-services-section": "workspace:*",
-    "@red-cup-engineering/json-services-section": "workspace:*"
+    "@red-cup-engineering/json-services-section": "workspace:*",
+    "@red-cup-engineering/jsonl-services-section": "workspace:*"
   },
   "scripts": {
     "test": "run-package-tests",
