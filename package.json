@@ -1,10 +1,10 @@
 {
-  "name": "@red-cup-engineering/javascript-file-import-services-section",
+  "name": "@red-cup-engineering/javascript-file-import-engineering-services-section",
   "version": "0.1.1",
   "description": "Groups independently packaged transformations over JavaScript file imports.",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/red-cup-engineering/javascript-file-import-services-section.git"
+    "url": "git+https://github.com/red-cup-engineering/javascript-file-import-engineering-services-section.git"
   },
   "type": "module",
   "exports": {
