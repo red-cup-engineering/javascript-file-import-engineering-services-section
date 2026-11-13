@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { spawnSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
 import test from "node:test";
-import { parseLines, serializeLines } from "@red-cup-engineering/jsonl-services-section";
+import { parseLines, serializeLines } from "@red-cup-engineering/jsonl-engineering-services-section";
 import { readJavascriptFileImports } from "../scripts/read-javascript-file-imports.mjs";
 
 const command = fileURLToPath(new URL("../scripts/read-javascript-file-imports.mjs", import.meta.url));

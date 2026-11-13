@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 
-import { freezeJson } from "@red-cup-engineering/json-services-section";
+import { freezeJson } from "@red-cup-engineering/json-engineering-services-section";
 
 import { requireTextFileRead } from "@red-cup-engineering/computer-file-engineering-services-section/require-text-file-read";
 
-import { SPECIFIER, stripCommentsAndLiterals } from "@red-cup-engineering/javascript-node-services-section/audit-layer-imports";
+import { SPECIFIER, stripCommentsAndLiterals } from "@red-cup-engineering/javascript-node-engineering-services-section/audit-layer-imports";
 import operationInputSchema from "../data/records/read-javascript-file-imports.input.schema.json" with { type: "json" };
 import operationOutputSchema from "../data/records/read-javascript-file-imports.output.schema.json" with { type: "json" };
-import { runJavascriptNodeOperation } from "@red-cup-engineering/javascript-node-services-section/operation";
+import { runJavascriptNodeOperation } from "@red-cup-engineering/javascript-node-engineering-services-section/operation";
 
 // The house's own import scan (SPECIFIER, in javascript-node-services-section/scripts/audit-layer-
 // imports.mjs) already reads every authored specifier a JavaScript file carries — a static `import
