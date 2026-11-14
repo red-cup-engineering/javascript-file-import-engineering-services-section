@@ -8,9 +8,7 @@ import { readJavascriptFileImports } from "../scripts/read-javascript-file-impor
 const command = fileURLToPath(new URL("../scripts/read-javascript-file-imports.mjs", import.meta.url));
 
 test("reads each supported authored import form in source order", () => {
-  // "require(...)" is dropped from the supported forms: the reader is built over the house's own
-  // SPECIFIER scan (static import, export-from, dynamic import(), import.meta.resolve), which reads
-  // ECMAScript module specifiers, not CommonJS calls — see JN's audit-layer-imports.mjs.
+  // This reader retains an ESM-only profile; CommonJS loader requests are separate.
   const path = "/workspace/src/index.mjs";
   const text = "import value from './value.mjs';\nexport { other } from \"../other.mjs\";\nconst later = import('./later.mjs');\nconst target = import.meta.resolve('./meta.mjs');\n";
   const reading = readJavascriptFileImports({ type: "TextFileRead", path, text });
@@ -35,10 +33,6 @@ test("a bare import with no binding is read too, and start/end exclude the quote
 });
 
 test("ignores comments, strings, and a dynamic import() call whose argument is not a string literal", () => {
-  // Dropped along with the TypeScript-compiler-based reader this replaces: "import type { Value }
-  // from './value.mjs'" and a .mts path. TypeScript-only syntax is out of scope for a reader built
-  // over the house's plain-JavaScript SPECIFIER scan; readJavascriptFileImports now describes only
-  // what it actually reads.
   const text = "// import './fiction.mjs'\nconst fiction = \"from './also-fiction.mjs'\";\nimport { value } from './value.mjs';\nconst unresolved = import(variable);\n";
   assert.deepEqual(readJavascriptFileImports({ type: "TextFileRead", path: "/workspace/src/index.mjs", text }).imports.map(({ specifier }) => specifier), ["./value.mjs"]);
 });
@@ -60,11 +54,6 @@ test("ignores a JSDoc import() type reference, an import line written into a blo
 });
 
 test("refuses a malformed carrier", () => {
-  // Dropped along with the TypeScript-compiler-based reader this replaces: a case asserting
-  // `readJavascriptFileImports` throws SyntaxError on unparseable JavaScript (e.g. "import {"). A
-  // text scan over SPECIFIER, like every other reader built on it in this house, has no grammar to
-  // fail against — it reports whatever specifiers the pattern matches and nothing where it doesn't,
-  // rather than validating that the file parses at all. That is a different capability.
   assert.throws(() => readJavascriptFileImports({ type: "TextFileRead", path: "x.mjs", text: "", extra: true }), /exactly/);
 });
 
