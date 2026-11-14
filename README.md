@@ -8,3 +8,11 @@
 <!-- 561-group-standards:badges:end -->
 
 Groups independently packaged transformations over JavaScript file imports.
+
+## Admitted ESM reference evidence
+
+The file reader uses the existing JavaScript parser and shared module-site API, not the removed JavaScriptNode audit scanner. Static imports/reexports, literal dynamic imports and direct literal `import.meta.resolve` retain authored ordering and quote-interior UTF-16 offsets. Specifiers are decoded JavaScript string values; source slices can therefore differ when escapes are authored. CommonJS requests and computed expressions are outside this ESM-only profile. No resolution or execution occurs.
+
+Unlike the former heuristic scan, malformed or parser-unsupported syntax refuses instead of yielding partial import evidence. The real installed-package inspector already runs native syntax checks and skips invalid files before reading references; parser limits remain explicit rather than a conformant empty closure. The NDJSON face uses the current Function owner.
+
+This source prerequisite is qualified with authentic local source/archive suppliers; existing declared historical suppliers and registry availability are not a frozen installation or release claim.
