@@ -1,0 +1,36 @@
+{
+  "name": "@red-cup-engineering/javascript-file-import-engineering-services-section",
+  "version": "0.2.3-dev.0",
+  "description": "Groups independently packaged transformations over JavaScript file imports.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/red-cup-engineering/javascript-file-import-engineering-services-section.git"
+  },
+  "type": "module",
+  "exports": {
+    "./read-javascript-file-imports": "./scripts/read-javascript-file-imports.mjs"
+  },
+  "dependencies": {
+    "@red-cup-engineering/computer-file-engineering-services-section": "^0.8.8",
+    "@red-cup-engineering/json-engine": "^0.5.0",
+    "@red-cup-engineering/jsonl-engineering-services-section": "^0.1.4",
+    "@red-cup-engineering/javascript-parser-service": "^0.2.0",
+    "@red-cup-engineering/node-js-function-engineering-services-section": "^0.5.2"
+  },
+  "scripts": {
+    "check": "check-package-syntax"
+  },
+  "devDependencies": {
+    "@red-cup-engineering/jsnode-package-engineering-services-section": "^0.6.2"
+  },
+  "license": "MIT",
+  "funding": {
+    "type": "individual",
+    "url": "https://github.com/561-group/.github/blob/main/TIPS.md"
+  },
+  "files": [
+    "scripts",
+    "data/records",
+    "package.json"
+  ]
+}
